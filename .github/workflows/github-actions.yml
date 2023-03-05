@@ -10,7 +10,11 @@ jobs:
         container: cuaesd/aesd-autotest:assignment5-buildroot
         runs-on: self-hosted
         timeout-minutes: 120
-        steps:
+	steps:
+	  - name: Checkout code
+	    uses: actions/checkout@v2
+	    with:
+		submodules: recursive
           - uses: actions/checkout@v2
           - name: Checkout submodules
             run: git submodule update --init --recursive
